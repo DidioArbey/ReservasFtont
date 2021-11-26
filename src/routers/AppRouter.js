@@ -8,6 +8,8 @@ import NotFoundPage from "../pages/NotFoundPage"
 import RegisterPage from "../pages/RegisterPage"
 import UserPage from "../pages/admin/UserPage"
 import Layout from '../components/layouts/Layout'
+import PrivateRoute from './PrivateRoute'
+
 
 
 export default function AppRouter() {
@@ -17,11 +19,11 @@ export default function AppRouter() {
                 <Switch>
                     <Route exact path="/" component={HomePage}></Route>
                     <Route exact path="/login" component={LoginPage}/>
-                    <Route exact path="/register" component={RegisterPage}/>
-                    <Route exact path="/account" component={AccountPage}/>
-                    <Route exact path="/bookings" component={BookingsPage}/>
-                    <Route exact path="/booking/:bookingId" component={BookingPage}/>
-                    <Route exact path="/admin/:users" component={UserPage}/>
+                    <PrivateRoute exact path="/register" component={RegisterPage}/>
+                    <PrivateRoute exact path="/account" component={AccountPage}/>
+                    <PrivateRoute exact path="/bookings" component={BookingsPage}/>
+                    <PrivateRoute exact path="/booking/:bookingId" component={BookingPage}/>
+                    <PrivateRoute exact path="/admin/:users" component={UserPage}/>
 
                     <Route path="*" component={NotFoundPage}/>
                 </Switch>
