@@ -1,3 +1,4 @@
+import AuthProvider from './auth/AuthProvider';
 import logo from './logo.svg';
 import AppRouter from './routers/AppRouter';
 // import './App.css';
@@ -5,7 +6,9 @@ import AppRouter from './routers/AppRouter';
 function App() {
   return (
     <div>
-      <AppRouter />
+      <AuthProvider>
+        <AppRouter />
+      </AuthProvider>
 
     </div>
   );
