@@ -10,6 +10,8 @@ import UserPage from "../pages/admin/UserPage"
 import Layout from '../components/layouts/Layout'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
+import roles from '../helpers/roles'
+import routes from '../helpers/routes'
 
 
 
@@ -18,13 +20,13 @@ export default function AppRouter() {
         <Router>
             <Layout>
                 <Switch>
-                    <PublicRoute exact path="/" component={HomePage}></PublicRoute>
-                    <PublicRoute exact path="/login" component={LoginPage}/>
-                    <PrivateRoute exact path="/register" component={RegisterPage}/>
-                    <PrivateRoute exact path="/account" component={AccountPage}/>
-                    <PrivateRoute exact path="/bookings" component={BookingsPage}/>
-                    <PrivateRoute exact path="/booking/:bookingId" component={BookingPage}/>
-                    <PrivateRoute hasRole="admin" exact path="/admin/:users" component={UserPage}/>
+                    <PublicRoute exact path={routes.home} component={HomePage}></PublicRoute>
+                    <PublicRoute exact path={routes.login} component={LoginPage}/>
+                    <PrivateRoute exact path={routes.register} component={RegisterPage}/>
+                    <PrivateRoute exact path={routes.account} component={AccountPage}/>
+                    <PrivateRoute exact path={routes.bookings} component={BookingsPage}/>
+                    <PrivateRoute exact path={routes.booking()} component={BookingPage}/>
+                    <PrivateRoute hasRole={roles.admin} exact path={routes.admin.users} component={UserPage}/>
 
                     <Route path="*" component={NotFoundPage}/>
                 </Switch>
