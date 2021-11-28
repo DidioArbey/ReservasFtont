@@ -9,6 +9,7 @@ import RegisterPage from "../pages/RegisterPage"
 import UserPage from "../pages/admin/UserPage"
 import Layout from '../components/layouts/Layout'
 import PrivateRoute from './PrivateRoute'
+import PublicRoute from './PublicRoute'
 
 
 
@@ -17,8 +18,8 @@ export default function AppRouter() {
         <Router>
             <Layout>
                 <Switch>
-                    <Route exact path="/" component={HomePage}></Route>
-                    <Route exact path="/login" component={LoginPage}/>
+                    <PublicRoute exact path="/" component={HomePage}></PublicRoute>
+                    <PublicRoute exact path="/login" component={LoginPage}/>
                     <PrivateRoute exact path="/register" component={RegisterPage}/>
                     <PrivateRoute exact path="/account" component={AccountPage}/>
                     <PrivateRoute exact path="/bookings" component={BookingsPage}/>
