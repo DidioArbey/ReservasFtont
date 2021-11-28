@@ -24,7 +24,7 @@ export default function AppRouter() {
                     <PrivateRoute exact path="/account" component={AccountPage}/>
                     <PrivateRoute exact path="/bookings" component={BookingsPage}/>
                     <PrivateRoute exact path="/booking/:bookingId" component={BookingPage}/>
-                    <PrivateRoute exact path="/admin/:users" component={UserPage}/>
+                    <PrivateRoute hasRole="admin" exact path="/admin/:users" component={UserPage}/>
 
                     <Route path="*" component={NotFoundPage}/>
                 </Switch>
