@@ -8,7 +8,8 @@ export default function Navegation() {
 
     return (
         <Navbar collapseOnSelect expand="lg" variant="dark" bg="dark">
-            <Navbar.Brand as={NavLink} to={routes.home}>Hotel Aroma cafetera
+            <Navbar.Brand as={NavLink} to={routes.home}>
+            <img src="/img/Aroma.svg" width="120" height="50" className="d-inline-block align-top" alt="logo aroma cafetera"/>
             </Navbar.Brand>
 
 
