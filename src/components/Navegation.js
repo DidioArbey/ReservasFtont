@@ -1,7 +1,11 @@
 import { Navbar, Nav, NavDropdown} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
+import useAuth from '../auth/useAuth'
 import routes from '../helpers/routes'
 export default function Navegation() {
+
+    const {logout} = useAuth();
+
     return (
         <Navbar collapseOnSelect expand="lg" variant="dark" bg="dark">
             <Navbar.Brand as={NavLink} to={routes.home}>Hotel Aroma cafetera
@@ -18,6 +22,7 @@ export default function Navegation() {
                     <Nav.Link as={NavLink} to={routes.login}>Login</Nav.Link>
                     <Nav.Link as={NavLink} to={routes.register}>Registrar</Nav.Link>
                     <Nav.Link as={NavLink} to={routes.account}>Cuenta</Nav.Link>
+                    <Nav.Link to={routes.account} onClick={logout} >Cerrar Sesion</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
